@@ -16,7 +16,7 @@ pipelines:
               tasks:
                - exec:
                    command: ./build
-  test::
+  test:
     group: dev-pipelines
     materials:
       mygit:
