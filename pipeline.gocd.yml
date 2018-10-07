@@ -1,0 +1,30 @@
+environments:
+  testing:
+    pipelines:
+      - build
+      - test
+pipelines:
+  build:
+    group: dev-pipelines
+    materials:
+      mygit:
+        git: https://github.com/ashikansal/getting-started-repo.git
+    stages:
+      - build-stage:
+          jobs:
+            build-job:
+              tasks:
+               - exec:
+                   command: ./build
+  test::
+    group: dev-pipelines
+    materials:
+      mygit:
+        git: https://github.com/ashikansal/pipelinetest2.git
+    stages:
+      - test-stage:
+          jobs:
+            test-job:
+              tasks:
+               - exec:
+                   command: ./exec
